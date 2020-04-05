@@ -29,7 +29,8 @@ abstract class base(
          when {
             (a>=b)||(t0>=T) -> throw Exception("Ліва межа має бути менша")
             (t0<0) -> throw Exception("Час має бути більший від нуля")
-            (phi(0.0)!=m1(0.0)) -> throw Exception("Не виконуються умови узгожєення")
+            (phi(0.0)!=m1(0.0)) -> throw Exception("Не виконуються умови узгодження")
+             (phi(b.toDouble())!=m2(0.0)) -> throw Exception("Не виконуються умови узгодження")
              (h<=0)||(tay<=0) -> throw Exception("Крок має бути більший від нуля")
 
         }

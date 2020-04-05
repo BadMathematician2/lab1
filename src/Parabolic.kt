@@ -1,4 +1,4 @@
-import kotlin.math.*
+import kotlin.math.pow
 
 class Parabolic(a:Int, b:Int, t0:Int, T:Int, h:Double, tay:Double, k:Double,
                 f:(x:Double,t:Double) -> Double, m1:(t:Double) -> Double, m2:(t:Double) -> Double,
@@ -7,7 +7,7 @@ class Parabolic(a:Int, b:Int, t0:Int, T:Int, h:Double, tay:Double, k:Double,
 
 
     override fun result(): Array<DoubleArray> {
-        val u: Array<DoubleArray> = Array(n+1) { DoubleArray(m+1, {0.0}) }
+        val u: Array<DoubleArray> = Array(n+1) { DoubleArray(m+1) {0.0} }
         var i = 0; var j = 0
         for (i in 0..n)
             u[i][0] = phi(a + i*h)
