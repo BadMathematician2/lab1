@@ -8,7 +8,6 @@ class Parabolic(a:Int, b:Int, t0:Int, T:Int, h:Double, tay:Double, k:Double,
 
     override fun result(): Array<DoubleArray> {
         val u: Array<DoubleArray> = Array(n+1) { DoubleArray(m+1) {0.0} }
-        var i = 0; var j = 0
         for (i in 0..n)
             u[i][0] = phi(a + i*h)
         for (j in 0..m){
@@ -17,12 +16,8 @@ class Parabolic(a:Int, b:Int, t0:Int, T:Int, h:Double, tay:Double, k:Double,
         }
         for (j in 0 until m)
             for (i in 1 until n)
-                u[i][j + 1] = u[i][j] + tay * k * (u[i + 1][j] - 2 * u[i][j] + u[i - 1][j]) / h.pow(2) + tay*f(a + i*h, t0 + j*tay)
-
+                u[i][j + 1] = u[i][j] + tay * k * (u[i + 1][j] - 2 * u[i][j] + u[i - 1][j]) / h.pow(2) +
+                        tay*f(a + i*h, t0 + j*tay)
         return u
     }
-
-
-
-
 }
